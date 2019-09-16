@@ -18,7 +18,7 @@ if (isset($_POST["submit"])) {
         $final_data .= "\n";
         if (file_put_contents('users.json', $final_data)) {
             $msg = "Signup Successful";
-            header("location:signup.php?message=$msg");
+            header("location:login.php?message=$msg");
 
         }
     } else {
@@ -68,8 +68,8 @@ if (isset($_POST["submit"])) {
                                 <input type="text" class="form-control" name="username" id="username" placeholder="Username" required aria-required="true">
                                 <input type="email" name="email" id="email" class="form-control" id="email" placeholder="Email Address" required aria-required="true">
                                 <input type="text" name="phone" class="form-control" id="mobile" placeholder="Mobile Number" required aria-required="true">
-                                <input type="password" name="password" id="password" class="form-control" placeholder="password">
-                                <input type="password" name="Cpassword" id="Cpassword" class="form-control" placeholder="Confirm password">
+                                <input type="password" name="password" id="password" class="form-control" placeholder="password" required aria-required="true">
+                                <input type="password" name="Cpassword" id="Cpassword" class="form-control" placeholder="Confirm password" required aria-required="true">
                                 <button type="submit" name="submit" id="submit" class="btn btn-outline-secondary btn-md buttonOption">Sign up</button>
                             </form>
                         </div>
