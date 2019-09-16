@@ -2,9 +2,11 @@
  $message = '';#this will be used when implementing error messages  
  $error = '';  #this will be used when implementing error messages
 //this is the basic User sign up
+date_default_timezone_set('America/New_York');
+$currentTime =date('m/d/Y h:i:sa');
  if(isset($_POST["submit"]))  
- {      if(file_exists('Users.json'))  
-           {  
+       if(file_exists('Users.json'))  
+                {  
                 $current_data = file_get_contents('Users.json');  
                 $array_data = json_decode($current_data, true);  
                 $extra = array(  
@@ -12,8 +14,8 @@
                      'username'          =>     $_POST["username"],  
                      'email'     =>     $_POST["email"],
                      'mobile'          =>     $_POST["mobile"], 
-                     'password'          =>     $_POST["password"]
-                    
+                     'password'          =>     $_POST["password"],
+                         'date'    =>   $currentTime
                 );  
                 $array_data[] = $extra;  
                 $final_data = json_encode($array_data);
