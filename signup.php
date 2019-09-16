@@ -18,7 +18,7 @@ if (isset($_POST["submit"])) {
         $final_data .= "\n";
         if (file_put_contents('users.json', $final_data)) {
             $msg = "Signup Successful";
-            header("location:signup.php?message=$msg");
+            header("location:login.php?message=$msg");
 
         }
     } else {
@@ -41,6 +41,8 @@ if (isset($_POST["submit"])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
+    <script src="js/main.js"></script>
+    <script src="/js/main.js"></script>
     </head>
   <body>
     <?php if (isset($_GET['message'])): ?>
@@ -63,29 +65,44 @@ if (isset($_POST["submit"])) {
                             <p >Kindly create your account by filling the form below</p>
                         </div>
                         <div class="heist-form">
-                            <form action="signup.php" method="POST" name="form">
-                                <input type="text" class="form-control" name="fullname" id="name" placeholder="Full Name"required aria-required="true">
-                                <input type="text" class="form-control" name="username" id="username" placeholder="Username" required aria-required="true">
-                                <input type="email" name="email" id="email" class="form-control" id="email" placeholder="Email Address" required aria-required="true">
-                                <input type="text" name="phone" class="form-control" id="mobile" placeholder="Mobile Number" required aria-required="true">
-                                <input type="password" name="password" id="password" class="form-control" placeholder="password">
-                                <input type="password" name="Cpassword" id="Cpassword" class="form-control" placeholder="Confirm password">
+                     
+                            <form action="signup.php" method="POST" name="form"onsubmit="return(validate());">
+                               
+                               <div class="form-group"><label for="fullname">FULLNAME:</label>   <input type="text" class="form-control" name="fullname" id="name" placeholder="Full Name"required aria-required="true"></div>
+
+
+                               <div class="form-group"><label for="username">Username:</label> <input type="text" class="form-control" name="username" id="username" placeholder="Username" required aria-required="true"></div>
+
+                               <div class="form-group"><label for="email">Email</label><input type="email" name="email" id="email" class="form-control" id="email" placeholder="Email Address" required aria-required="true"></div>
+
+                               <div class="form-group"><label for="phone">Phone Number:</label> <input type="text" name="phone" class="form-control" id="mobile" placeholder="Mobile Number" required aria-required="true"></div>
+
+
+                               <div class="form-group"><label for="password">Password:</label>    
+                                <input type="password" name="password" id="password" class="form-control" placeholder="password"></div>
+                                
+                               <div class="form-group"><label for="Cpassword">Confirm Password</label>  <input type="password" name="Cpassword" id="Cpassword" class="form-control" placeholder="Confirm password"></div>                              
+                             
+                               
+                                
+                          
+                              
                                 <button type="submit" name="submit" id="submit" class="btn btn-outline-secondary btn-md buttonOption">Sign up</button>
                             </form>
                         </div>
                         <div class="form-footer">
                             <p>Already a member?. <a href="login.php" class="loginHeist">Login</a></p>
-                            <div class="line"><hr class="left"><span class="text-muted" > or</span><hr class="right"></div>
+                            <div class="line"><hr class="left"><span class="text-muted" ></span><hr class="right"></div>
                             <div class="d-flex justify-content-center align-items-center">
                                 <!-- <button type="button" class="btn btn-outline-secondary btn-md buttonOption">Sign Up with Google</button>
                                 <button type="button" class="btn btn-outline-secondary btn-md buttonOption">Sign Up with Facebook</button> -->
-                                <button type="button" class="btn btn-outline-secondary btn-md buttonOption py-1">
+                                <!-- <button type="button" class="btn btn-outline-secondary btn-md buttonOption py-1">
                                     <span>
                                       <img src="https://res.cloudinary.com/dcoqt2wpo/image/upload/v1568667394/WhatsApp_Image_2019-09-16_at_21.50.29_wmmg1d.jpg"
                                       alt="Alternate_Signup" width="25" class="img-fluid py-0">
                                     </span>
                                       Sign in with Google
-                            </button>
+                            </button> -->
                             </div>
                         </div>
                 </div>
