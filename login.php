@@ -100,6 +100,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
     <link rel="stylesheet" href="/css/style.css">
     </head>
   <body>
+    <?php if (isset($_GET['message'])): ?>
+      <script>alert("<?= $_GET['message'] ?>");</script>
+    <?php endif;?>
       <!--check back later-->
     <!-- Begin page content -->
     <div class="container-fluid">
