@@ -16,6 +16,9 @@
     margin-left: -15px;
 
 }
+.log{
+    margin: 20px 0;
+}
 .form-header{
     margin-top: 10px;
 }
@@ -54,6 +57,13 @@
     border-bottom: 1px solid #5550AA;
     color:#5550AA;
 }
+.loginHeist:hover{
+    color:#5550AA;
+    text-decoration: none;
+}
+.log-content{
+    margin-top: 20px;
+}
 .form-control{
     background: none;
     border-bottom: 3px solid #5550AA;
@@ -74,8 +84,8 @@
 
 /*welcome page styles*/
 #wrapper {
-    background: url('https://res.cloudinary.com/abisola/image/upload/v1568728325/curves_2_g07mek.svg') no-repeat bottom right,
-    url('https://res.cloudinary.com/abisola/image/upload/v1568728324/curves_q0ee7x.svg') no-repeat top left;;
+    /* background: url('https://res.cloudinary.com/abisola/image/upload/v1568728325/curves_2_g07mek.svg') no-repeat bottom right,
+    url('https://res.cloudinary.com/abisola/image/upload/v1568728324/curves_q0ee7x.svg') no-repeat top left;; */
     text-align: center;
     padding: 50px;
     height: 100vh;
@@ -102,10 +112,15 @@ left:0px;
     .btn{
         font-size: 16px;
     }
+    .log-content{
+        margin-top: 10vh;
+    }
     .contain{
-        background: url('https://res.cloudinary.com/benjee/image/upload/v1568676463/Group_1_hyi0jp.png');
-        background-repeat: no-repeat;
-        background-position-y: -100px;
+        background: url('https://res.cloudinary.com/abisola/image/upload/v1568728325/curves_2_g07mek.svg') no-repeat bottom right,
+    url('https://res.cloudinary.com/abisola/image/upload/v1568728324/curves_q0ee7x.svg') no-repeat top left;;
+    text-align: center;
+    height: 100vh;
+    max-width: 100%;
     }
 
     /* welcome page style*/
@@ -128,10 +143,15 @@ left:0px;
     .btn{
         font-size: 16px;
     }
+    .log-content{
+        margin-top: 10vh;
+    }
     .contain{
-        background: url('https://res.cloudinary.com/benjee/image/upload/v1568676463/Group_1_hyi0jp.png');
-        background-repeat: no-repeat;
-        background-position-y: -100px;
+        background: url('https://res.cloudinary.com/abisola/image/upload/v1568728325/curves_2_g07mek.svg') no-repeat bottom right,
+    url('https://res.cloudinary.com/abisola/image/upload/v1568728324/curves_q0ee7x.svg') no-repeat top left;;
+    text-align: center;
+    height: 100vh;
+    max-width: 100%;
     }
     h1{
         font-size: 30px;

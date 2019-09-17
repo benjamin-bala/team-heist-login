@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 date_default_timezone_set('Africa/Lagos');
 // start session
 session_start();
@@ -81,6 +81,7 @@ if (isset($_POST["submit"])) {
     
 }
 }
+
 ?>
 <!doctype html>
 <html lang="en" >
@@ -99,9 +100,9 @@ if (isset($_POST["submit"])) {
     <script src="js/main.js"></script>
     </head>
   <body>
-    <?php if (isset($_GET['message'])): ?>
+    <!-- <?php if (isset($_GET['message'])): ?>
         <script>alert("<?=$_GET['message']?>");</script>
-    <?php endif;?>
+    <?php endif;?> -->
       <!--check back later-->
     <!-- Begin page content -->
     <div class="container-fluid">
@@ -139,15 +140,15 @@ if (isset($_POST["submit"])) {
                              
                                
                                 
-                          
-                              
+              
                                 <button type="submit" name="submit" id="submit" class="btn btn-outline-secondary btn-md buttonOption">Sign up</button>
                             </form>
                         </div>
                         <div class="form-footer">
-                            <p>Already a member?. <a href="login.php" class="loginHeist">Login</a></p>
-                            <div class="line"><hr class="left"><span class="text-muted" ></span><hr class="right"></div>
-                            <div class="d-flex justify-content-center align-items-center">
+
+                            <p>Already a member?. <a href="login.html" class="loginHeist">Login</a></p>
+                            <!-- <div class="line"><hr class="left"><span class="text-muted" > or</span><hr class="right"></div>
+                            <div class="d-flex justify-content-center align-items-center"> -->
                                 <!-- <button type="button" class="btn btn-outline-secondary btn-md buttonOption">Sign Up with Google</button>
                                 <button type="button" class="btn btn-outline-secondary btn-md buttonOption">Sign Up with Facebook</button> -->
                                 <!-- <button type="button" class="btn btn-outline-secondary btn-md buttonOption py-1">
@@ -158,7 +159,7 @@ if (isset($_POST["submit"])) {
                                       Sign in with Google
                             </button> -->
                             </div>
-                        </div>
+                        </div> -->
                 </div>
             </div>
 
