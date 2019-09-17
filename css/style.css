@@ -71,6 +71,27 @@
 .btn{
     font-size: 15px;
 }
+
+/*welcome page styles*/
+#wrapper {
+    background: url('https://res.cloudinary.com/abisola/image/upload/v1568728325/curves_2_g07mek.svg') no-repeat bottom right,
+    url('https://res.cloudinary.com/abisola/image/upload/v1568728324/curves_q0ee7x.svg') no-repeat top left;;
+    text-align: center;
+    padding: 50px;
+    height: 100vh;
+    max-width: 100%;
+}
+
+#text-box {
+    margin-bottom: 15px;
+}
+
+#wrapper span {
+    color: #5550AA;
+}
+
+
+
 @media(max-width: 900px){
     .image-container{
         display: none;
@@ -82,6 +103,19 @@
         background: url('https://res.cloudinary.com/benjee/image/upload/v1568676463/Group_1_hyi0jp.png');
         background-repeat: no-repeat;
         background-position-y: -100px;
+    }
+
+    /* welcome page style*/
+    #wrapper {
+        background: none;
+        font-size: 30px;
+        text-align: center;
+        height: 80vh;
+    }
+
+    .img-box img {
+        width: 600px;
+        margin: 0 auto;
     }
 }
 @media(max-width: 720px){
@@ -104,5 +138,17 @@
     }
     .btn{
         font-size: 14px;
+    }
+
+    /* welcome page style*/
+    #wrapper {
+        position: relative;
+        top: 100px;
+        padding: 5px;
+    }
+
+    #wrapper .img-box img{
+        width: 350px;
+        margin: 0 auto;
     }
 }

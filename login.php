@@ -1,3 +1,89 @@
+<?php
+// start session
+session_start();
+
+// if logged in already, redirect
+if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
+    $msg = "You are already logged in";
+    header("location:welcome.php?message=$msg");
+}
+
+// if remeber was set before, login directly
+if (isset($_COOKIE["heistuser"])) {
+    if (file_exists('users.json')) {
+        $users = json_decode(file_get_contents("users.json"));
+        $usernames = array_column($users, "username");
+        if (in_array($_COOKIE["heistuser"], $usernames)) {
+            $user = $users[array_search($_COOKIE["heistuser"], $usernames)];
+            // store all vars in session
+            $_SESSION['loggedin'] = true;
+            $_SESSION['fullname'] = $user->fullname;
+            $_SESSION['username'] = $user->username;
+            $_SESSION['email'] = $user->email;
+            $_SESSION['phone'] = $user->phone;
+            $msg = "Logged in successfully";
+            header("location:welcome.php?message=$msg");
+        } else {
+            $msg = "User does not exist";
+            header("location:login.php?message=$msg");
+        }
+    } else {
+        $msg = "Database not present";
+        header("location:login.php?message=$msg");
+    }
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
+    // validation
+    // check if username is not empty and password is not empty
+    if (isset($_POST["username"]) and isset($_POST['password'])) {
+        $username = trim($_POST["username"]);
+        $password = trim($_POST["password"]);
+        // Check that both field are not empty
+        if (strlen($username) < 1 || strlen($password) < 1) {
+            $msg = "Fill all required fields";
+            header("location:login.php?message=$msg");
+        }
+        // check that the username exist
+        if (file_exists('users.json')) {
+            $users = json_decode(file_get_contents("users.json"));
+            $usernames = array_column($users, "username");
+            if (in_array($username, $usernames)) {
+                $user = $users[array_search($username, $usernames)];
+
+                if (md5($password) == $user->password) {
+                    // if remember me isset
+                    if (isset($_POST["remember_me"])) {
+                        setcookie("heistuser", $_POST["username"], time() + (30 * 24 * 60 * 60));
+                    } else {
+                        if (isset($_COOKIE["heistuser"])) {
+                            setcookie("heistuser", "");
+                        }
+                    }
+
+                    // store all vars in session
+                    $_SESSION['loggedin'] = true;
+                    $_SESSION['fullname'] = $user->fullname;
+                    $_SESSION['username'] = $user->username;
+                    $_SESSION['email'] = $user->email;
+                    $_SESSION['phone'] = $user->phone;
+                    $msg = "Logged in successfully";
+                    header("location:welcome.php?message=$msg");
+                } else {
+                    $msg = "Incorrect Password";
+                    header("location:login.php?message=$msg");
+                }
+            } else {
+                $msg = "User does not exist";
+                header("location:login.php?message=$msg");
+            }
+        } else {
+            $msg = "Error loading database";
+            header("location:login.php?message=$msg");
+        }
+    }
+}
+?>
 
 <!doctype html>
 <html lang="en" >
@@ -13,7 +99,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
     </head>
-  <body> 
+  <body>
       <!--check back later-->
     <!-- Begin page content -->
     <div class="container-fluid">
@@ -31,7 +117,7 @@
                             <p >Enter your login details</p>
                         </div>
                         <div class="heist-form">
-                            <form action="login-user.php" method="POST" name="form" >
+                            <form action="login.php" method="POST" name="form" >
                                 <input type="text" class="form-control" name="username" id="username" placeholder="Username" required aria-required="true">
                                 <input type="password" name="password" id="password" class="form-control" placeholder="password">
                                 <input type="checkbox" name="remember" id="remember" class= 'align-items-left'><span class= 'text-left'>Remember me</span><br>
@@ -46,7 +132,7 @@
                                 <button type="button" class="btn btn-outline-secondary btn-md buttonOption">Sign Up with Facebook</button> -->
                                 <button type="button" class="btn btn-outline-secondary btn-md buttonOption py-1">
                                     <span>
-                                      <img src="https://res.cloudinary.com/dcoqt2wpo/image/upload/v1568667394/WhatsApp_Image_2019-09-16_at_21.50.29_wmmg1d.jpg" 
+                                      <img src="https://res.cloudinary.com/dcoqt2wpo/image/upload/v1568667394/WhatsApp_Image_2019-09-16_at_21.50.29_wmmg1d.jpg"
                                       alt="Alternate_Signup" width="25" class="img-fluid py-0">
                                     </span>
                                       Sign in with Google
@@ -56,9 +142,9 @@
                 </div>
             </div>
 
-        </div>  
+        </div>
     </div>
-    <script src="js/validationscript.js"></script>
+
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
