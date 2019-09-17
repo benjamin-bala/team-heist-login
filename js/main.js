@@ -32,7 +32,7 @@ function validate() {
     document.form.password.focus();
     return false;
   }
-  else if (document.form.Cpassword.value == "") {
+  else if (document.form.Cpassword.value == "" ) {
     return alert("Please provide your Confirmed password!");
     document.form.Cpassword.focus();
     return false;
