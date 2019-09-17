@@ -1,7 +1,5 @@
 <?php
-date_default_timezone_set('America/New_York');
-$message = ''; #this will be used when implementing error messages
-$error = ''; #this will be used when implementing error messages
+date_default_timezone_set('Africa/Lagos');
 //this is the basic User sign up
 if (isset($_POST["submit"])) {
     if (file_exists('users.json')) {
@@ -19,11 +17,13 @@ if (isset($_POST["submit"])) {
         $final_data = json_encode($array_data);
         $final_data .= "\n";
         if (file_put_contents('users.json', $final_data)) {
-            $message = "<label class='text-success'>File Appended Success fully</p>";
-            header("Location: signup.php");
+            $msg = "Signup Successful";
+            header("location:signup.php?message=$msg");
+
         }
     } else {
-        $error = 'Error loading database';
+        $msg = 'Error loading database';
+        header("location:signup.php?message=$msg");
     }
 }
 
@@ -43,6 +43,9 @@ if (isset($_POST["submit"])) {
     <link rel="stylesheet" href="/css/style.css">
     </head>
   <body>
+    <?php if (isset($_GET['message'])): ?>
+        <script>alert("<?=$_GET['message']?>");</script>
+    <?php endif;?>
       <!--check back later-->
     <!-- Begin page content -->
     <div class="container-fluid">
@@ -60,7 +63,7 @@ if (isset($_POST["submit"])) {
                             <p >Kindly create your account by filling the form below</p>
                         </div>
                         <div class="heist-form">
-                            <form action="#" >
+                            <form action="signup.php" method="POST" name="form">
                                 <input type="text" class="form-control" name="fullname" id="name" placeholder="Full Name"required aria-required="true">
                                 <input type="text" class="form-control" name="username" id="username" placeholder="Username" required aria-required="true">
                                 <input type="email" name="email" id="email" class="form-control" id="email" placeholder="Email Address" required aria-required="true">
@@ -71,7 +74,7 @@ if (isset($_POST["submit"])) {
                             </form>
                         </div>
                         <div class="form-footer">
-                            <p>Already a member?. <a href="index.html" class="loginHeist">Login</a></p>
+                            <p>Already a member?. <a href="login.php" class="loginHeist">Login</a></p>
                             <div class="line"><hr class="left"><span class="text-muted" > or</span><hr class="right"></div>
                             <div class="d-flex justify-content-center align-items-center">
                                 <!-- <button type="button" class="btn btn-outline-secondary btn-md buttonOption">Sign Up with Google</button>

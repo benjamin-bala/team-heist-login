@@ -128,7 +128,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
                             </form>
                         </div><br>
                         <div class="form-footer">
-                            <p>Not a member yet?. <a href="signup.html" class="loginHeist">Sign up</a></p>
+                            <p>Not a member yet?. <a href="signup.php" class="loginHeist">Sign up</a></p>
                             <div class="line"><hr class="left"><span class="text-muted" > or</span><hr class="right"></div>
                             <div class="d-flex justify-content-center align-items-center">
                                 <!-- <button type="button" class="btn btn-outline-secondary btn-md buttonOption">Sign Up with Google</button>
