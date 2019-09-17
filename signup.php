@@ -145,8 +145,8 @@ if (isset($_POST["submit"])) {
                             </form>
                         </div>
                         <div class="form-footer">
+                            <p>Already a member?. <a href="login.php" class="loginHeist">Login</a></p>
 
-                            <p>Already a member?. <a href="login.html" class="loginHeist">Login</a></p>
                             <!-- <div class="line"><hr class="left"><span class="text-muted" > or</span><hr class="right"></div>
                             <div class="d-flex justify-content-center align-items-center"> -->
                                 <!-- <button type="button" class="btn btn-outline-secondary btn-md buttonOption">Sign Up with Google</button>
