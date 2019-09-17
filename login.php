@@ -1,13 +1,12 @@
 
-
 <!doctype html>
 <html lang="en" >
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Signup with the official team heist of the HNGi6 Group.">
-    <title>Sign up | Team Heist</title>
-    <meta name="author" content="Abdullah Oladipo(@lapalace), Benjamin Bala (@Benjee), Kenchi, Kadijat Okeowo, Tuns,Akuagwu Philemon and other Team Heist contributors">
+    <title>Log In | Team Heist</title>
+    <meta name="author" content="Abdullah Oladipo(@lapalace), Benjamin Bala (@Benjee), Kenchi, Kadijat Okeowo, Tuns and other Team Heist contributors">
     <meta name="generator" content="Team_Heist_Login v6.1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
@@ -28,33 +27,30 @@
                             <img src="https://res.cloudinary.com/benjee/image/upload/v1568672308/Heist_nhkhoh.png" alt="heist logo" width="100" height="100">
                         </div>
                         <div class="form-header">
-                            <h1>Create Account</h1>
-                            <p >Kindly create your account by filling the form below</p>
+                            <h1>Welcome Back</h1>
+                            <p >Enter your login details</p>
                         </div>
                         <div class="heist-form">
-                            <form action="signup.inc.php" method="POST" name="forms" >
-                                <input type="text" class="form-control" name="full_name" id="name" placeholder="Full Name"required aria-required="true"> 
+                            <form action="login-user.php" method="POST" name="form" >
                                 <input type="text" class="form-control" name="username" id="username" placeholder="Username" required aria-required="true">
-                                <input type="email" name="email" id="email" class="form-control" id="email" placeholder="Email Address" required aria-required="true">
-                                <input type="text" name="phone" class="form-control" id="mobile" placeholder="Mobile Number" required aria-required="true">
                                 <input type="password" name="password" id="password" class="form-control" placeholder="password">
-                                <input type="password" name="Cpassword" id="Cpassword" class="form-control" placeholder="Confirm password">
-                                <button type="submit" name="submit" id="submit" class="btn btn-outline-secondary btn-md buttonOption" >Sign up</button>
+                                <input type="checkbox" name="remember" id="remember" class= 'align-items-left'><span class= 'text-left'>Remember me</span><br>
+                                <button type="submit" name="submit" id="submit" class="btn btn-outline-secondary btn-md buttonOption">Login</button>
                             </form>
-                        </div>
+                        </div><br>
                         <div class="form-footer">
-                            <p>Already a member?. <a href="login.php" class="loginHeist">Login</a></p>
+                            <p>Not a member yet?. <a href="signup.html" class="loginHeist">Sign up</a></p>
                             <div class="line"><hr class="left"><span class="text-muted" > or</span><hr class="right"></div>
                             <div class="d-flex justify-content-center align-items-center">
                                 <!-- <button type="button" class="btn btn-outline-secondary btn-md buttonOption">Sign Up with Google</button>
                                 <button type="button" class="btn btn-outline-secondary btn-md buttonOption">Sign Up with Facebook</button> -->
-                                <!-- <button type="button" class="btn btn-outline-secondary btn-md buttonOption py-1" >
+                                <button type="button" class="btn btn-outline-secondary btn-md buttonOption py-1">
                                     <span>
                                       <img src="https://res.cloudinary.com/dcoqt2wpo/image/upload/v1568667394/WhatsApp_Image_2019-09-16_at_21.50.29_wmmg1d.jpg" 
                                       alt="Alternate_Signup" width="25" class="img-fluid py-0">
                                     </span>
                                       Sign in with Google
-                            </button> -->
+                            </button>
                             </div>
                         </div>
                 </div>
@@ -62,7 +58,6 @@
 
         </div>  
     </div>
-
     <script src="js/validationscript.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -71,4 +66,3 @@
     <script src="/script.js"></script>
 </body>
 </html>
-
