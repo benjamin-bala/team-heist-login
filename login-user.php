@@ -9,6 +9,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
 
 // if remeber was set before, login directly
 if (isset($_COOKIE["heistuser"])) {
+
     if (file_exists('Users.json')) {
         $users = json_decode(file_get_contents("Users.json"));
         $usernames = array_column($users, "username");
@@ -40,8 +41,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
             echo "Fill all required fields";
         }
         // check that the username exist
+
         if (file_exists('Users.json')) {
             $users = json_decode(file_get_contents("Users.json"));
+
             $usernames = array_column($users, "username");
             if (in_array($username, $usernames)) {
                 $user = $users[array_search($username, $usernames)];
@@ -62,6 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
                     $_SESSION['username'] = $user->username;
                     $_SESSION['email'] = $user->email;
                     $_SESSION['phone'] = $user->phone;
+
                     header("location: welcome.php");
                 } else {
                     echo "Incorrect Password";
