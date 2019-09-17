@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,11 +16,16 @@
     </head>
 
     <body>
+        <?php if (isset($_GET['message'])): ?>
+        <script>alert("<?=$_GET['message']?>");</script>
+    <?php endif;?>
         <div class="container-fluid" id="wrapper">
                 <div class="text-box animated slideInDown 2s slow">
                     <h1 class="welcome-text">
                         Welcome,
-                        <span class="username">Heist</span>
+                        <span class="username">
+                            <?= isset($_SESSION['fullname'])? $_SESSION['fullname'] : "Heist"?>
+                        </span>
                     </h1>
                 </div>
                 <div class="img-box animated fadeIn 2s slower">
