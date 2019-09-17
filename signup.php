@@ -11,6 +11,17 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
 //this is the basic User sign up
 if (isset($_POST["submit"])) {
     if (file_exists('users.json')) {
+        $username = $_POST["username"];
+        $users = json_decode(file_get_contents("users.json"));
+        $usernames = array_column($users, "username");
+    
+        if (in_array($username, $usernames)) {
+        $user = $users[array_search($username, $usernames)];   
+        if($users[array_search($username, $usernames)] ==true){
+            $msg = "user already exist";
+            header("location:signup.php?message=$msg");
+            // $username==$user->username
+             exit;        }
         $current_data = file_get_contents('users.json');
         $array_data = json_decode($current_data, true);
 
@@ -61,14 +72,17 @@ if (isset($_POST["submit"])) {
         if (file_put_contents('users.json', $final_data)) {
             $msg = "Signup Successful";
             header("location:login.php?message=$msg");
+
         }
     } else {
-        $msg = 'Error loading database';
+        $msg = 'User already Exists';
         header("location:signup.php?message=$msg");
     }
+    
+}
 }
 
-?> -->
+?>
 <!doctype html>
 <html lang="en" >
   <head>
@@ -81,7 +95,9 @@ if (isset($_POST["submit"])) {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="js/main.js"></script>
     </head>
   <body>
     <!-- <?php if (isset($_GET['message'])): ?>
@@ -104,18 +120,33 @@ if (isset($_POST["submit"])) {
                             <p >Kindly create your account by filling the form below</p>
                         </div>
                         <div class="heist-form">
-                            <form > <!--action="signup.php" method="POST" name="form"-->
-                                <input type="text" class="form-control" name="fullname" id="name" placeholder="Full Name"required aria-required="true">
-                                <input type="text" class="form-control" name="username" id="username" placeholder="Username" required aria-required="true">
-                                <input type="email" name="email" id="email" class="form-control" id="email" placeholder="Email Address" required aria-required="true">
-                                <input type="text" name="phone" class="form-control" id="mobile" placeholder="Mobile Number" required aria-required="true">
-                                <input type="password" name="password" id="password" class="form-control" placeholder="password">
-                                <input type="password" name="Cpassword" id="Cpassword" class="form-control" placeholder="Confirm password">
+                     
+                            <form action="signup.php" method="POST"    name="form"onsubmit="return(validate());" class="needs-validation" novalidate>
+                               
+                               <div class="form-group"><label for="fullname">FULLNAME:</label>   <input type="text" class="form-control" name="fullname" id="name" placeholder="Full Name"required aria-required="true"></div>
+
+
+                               <div class="form-group"><label for="username">Username:</label> <input type="text" class="form-control" name="username" id="username" placeholder="Username" required aria-required="true"></div>
+
+                               <div class="form-group"><label for="email">Email</label><input type="email" name="email" id="email" class="form-control" id="email" placeholder="Email Address" required aria-required="true"></div>
+
+                               <div class="form-group"><label for="phone">Phone Number:</label> <input type="text" name="phone" class="form-control" id="mobile" placeholder="Mobile Number" required aria-required="true"></div>
+
+
+                               <div class="form-group"><label for="password">Password:</label>    
+                                <input type="password" name="password" id="password" class="form-control" placeholder="password" required aria-required="true"></div>
+                                
+                               <!-- <div class="form-group"><label for="Cpassword">Confirm Password</label>  <input type="password" name="Cpassword" id="Cpassword" class="form-control" placeholder="Confirm password"required aria-required="true"></div>                               -->
+                             
+                               
+                                
+              
                                 <button type="submit" name="submit" id="submit" class="btn btn-outline-secondary btn-md buttonOption">Sign up</button>
                             </form>
                         </div>
                         <div class="form-footer">
                             <p>Already a member?. <a href="login.php" class="loginHeist">Login</a></p>
+
                             <!-- <div class="line"><hr class="left"><span class="text-muted" > or</span><hr class="right"></div>
                             <div class="d-flex justify-content-center align-items-center"> -->
                                 <!-- <button type="button" class="btn btn-outline-secondary btn-md buttonOption">Sign Up with Google</button>
@@ -126,7 +157,7 @@ if (isset($_POST["submit"])) {
                                       alt="Alternate_Signup" width="25" class="img-fluid py-0">
                                     </span>
                                       Sign in with Google
-                            </button>
+                            </button> -->
                             </div>
                         </div> -->
                 </div>
@@ -135,6 +166,7 @@ if (isset($_POST["submit"])) {
         </div>
     </div>
 
+    <script src="/js/main.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

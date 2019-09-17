@@ -16,7 +16,11 @@ session_start();
     </head>
 
     <body>
-        <!-- <?php if (isset($_GET['message'])): ?>
+
+    <form class="reformed"action="logout.php" method="post">  
+         <button type="submit" name="logout-submit" class="btn btn-outline-secondary btn-md buttonOption">Logout</button>
+    </form>
+        <?php if (isset($_GET['message'])): ?>\
         <script>alert("<?=$_GET['message']?>");</script>
     <?php endif;?> -->
         <div class="container-fluid" id="wrapper">
