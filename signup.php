@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 date_default_timezone_set('Africa/Lagos');
 // start session
 session_start();
@@ -68,7 +68,7 @@ if (isset($_POST["submit"])) {
     }
 }
 
-?>
+?> -->
 <!doctype html>
 <html lang="en" >
   <head>
@@ -84,9 +84,9 @@ if (isset($_POST["submit"])) {
     <link rel="stylesheet" href="css/style.css">
     </head>
   <body>
-    <?php if (isset($_GET['message'])): ?>
+    <!-- <?php if (isset($_GET['message'])): ?>
         <script>alert("<?=$_GET['message']?>");</script>
-    <?php endif;?>
+    <?php endif;?> -->
       <!--check back later-->
     <!-- Begin page content -->
     <div class="container-fluid">
@@ -104,7 +104,7 @@ if (isset($_POST["submit"])) {
                             <p >Kindly create your account by filling the form below</p>
                         </div>
                         <div class="heist-form">
-                            <form action="signup.php" method="POST" name="form">
+                            <form > <!--action="signup.php" method="POST" name="form"-->
                                 <input type="text" class="form-control" name="fullname" id="name" placeholder="Full Name"required aria-required="true">
                                 <input type="text" class="form-control" name="username" id="username" placeholder="Username" required aria-required="true">
                                 <input type="email" name="email" id="email" class="form-control" id="email" placeholder="Email Address" required aria-required="true">
@@ -115,12 +115,12 @@ if (isset($_POST["submit"])) {
                             </form>
                         </div>
                         <div class="form-footer">
-                            <p>Already a member?. <a href="login.php" class="loginHeist">Login</a></p>
-                            <div class="line"><hr class="left"><span class="text-muted" > or</span><hr class="right"></div>
-                            <div class="d-flex justify-content-center align-items-center">
+                            <p>Already a member?. <a href="login.html" class="loginHeist">Login</a></p>
+                            <!-- <div class="line"><hr class="left"><span class="text-muted" > or</span><hr class="right"></div>
+                            <div class="d-flex justify-content-center align-items-center"> -->
                                 <!-- <button type="button" class="btn btn-outline-secondary btn-md buttonOption">Sign Up with Google</button>
                                 <button type="button" class="btn btn-outline-secondary btn-md buttonOption">Sign Up with Facebook</button> -->
-                                <button type="button" class="btn btn-outline-secondary btn-md buttonOption py-1">
+                                <!-- <button type="button" class="btn btn-outline-secondary btn-md buttonOption py-1">
                                     <span>
                                       <img src="https://res.cloudinary.com/dcoqt2wpo/image/upload/v1568667394/WhatsApp_Image_2019-09-16_at_21.50.29_wmmg1d.jpg"
                                       alt="Alternate_Signup" width="25" class="img-fluid py-0">
@@ -128,7 +128,7 @@ if (isset($_POST["submit"])) {
                                       Sign in with Google
                             </button>
                             </div>
-                        </div>
+                        </div> -->
                 </div>
             </div>
 

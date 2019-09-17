@@ -1,7 +1,7 @@
-<?php
+<!-- <?php
 session_start();
 
-?>
+?> -->
 
 <!DOCTYPE html>
 <html>
@@ -16,15 +16,15 @@ session_start();
     </head>
 
     <body>
-        <?php if (isset($_GET['message'])): ?>
+        <!-- <?php if (isset($_GET['message'])): ?>
         <script>alert("<?=$_GET['message']?>");</script>
-    <?php endif;?>
+    <?php endif;?> -->
         <div class="container-fluid" id="wrapper">
                 <div class="text-box animated slideInDown 2s slow">
                     <h1 class="welcome-text">
                         Welcome,
                         <span class="username">
-                            <?= isset($_SESSION['fullname'])? $_SESSION['fullname'] : "Heist"?>
+                            <!-- <?= isset($_SESSION['fullname'])? $_SESSION['fullname'] : "Heist"?> -->
                         </span>
                     </h1>
                 </div>
