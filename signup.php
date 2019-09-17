@@ -1,16 +1,58 @@
 <?php
 date_default_timezone_set('Africa/Lagos');
+// start session
+session_start();
+// if logged in already, redirect
+if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
+    $msg = "You are already logged in";
+    header("location:welcome.php?message=$msg");
+}
+
 //this is the basic User sign up
 if (isset($_POST["submit"])) {
     if (file_exists('users.json')) {
         $current_data = file_get_contents('users.json');
         $array_data = json_decode($current_data, true);
+
+        // validation
+        $fullname = trim($_POST["fullname"]);
+        $username = trim($_POST["username"]);
+        $email = trim($_POST["email"]);
+        $phone = trim($_POST["phone"]);
+        $password = trim($_POST["password"]);
+        $cpassword = (trim($_POST["Cpassword"]));
+
+        // check that all field are valid
+        if (strlen($fullname) < 1 || strlen($username) < 1 || strlen($email) < 1 || strlen($phone) < 1 || strlen($password) < 1 || strlen($cpassword) < 1) {
+            $msg = "Fill all required fields";
+            header("location:signup.php?message=$msg");
+        }
+
+        // check if email && username doesn't exist
+        $emails = array_column($array_data, "email");
+        $usernames = array_column($array_data, "username");
+        if (in_array($email, $emails)) {
+            $msg = "User with this email exists";
+            header("location:signup.php?message=$msg");
+        }
+        if (in_array($username, $usernames)) {
+            $msg = "Username has been choosen";
+            header("location:signup.php?message=$msg");
+        }
+
+        // check if password match
+        if ($password != $cpassword) {
+            $msg = "Password don't match";
+            header("location:signup.php?message=$msg");
+        }
+
+        // then store
         $extra = array(
-            'fullname' => $_POST['fullname'],
-            'username' => $_POST["username"],
-            'email' => $_POST["email"],
-            'phone' => $_POST["phone"],
-            'password' => md5($_POST["password"]),
+            'fullname' => $fullname,
+            'username' => $username,
+            'email' => $email,
+            'phone' => $phone,
+            'password' => md5($password),
             'created_at' => date("Y-m-d h:i:s a", time()),
         );
         $array_data[] = $extra;
@@ -18,8 +60,7 @@ if (isset($_POST["submit"])) {
         $final_data .= "\n";
         if (file_put_contents('users.json', $final_data)) {
             $msg = "Signup Successful";
-            header("location:signup.php?message=$msg");
-
+            header("location:login.php?message=$msg");
         }
     } else {
         $msg = 'Error loading database';

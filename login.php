@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
 
                 if (md5($password) == $user->password) {
                     // if remember me isset
-                    if (isset($_POST["remember_me"])) {
+                    if (isset($_POST["remember"])) {
                         setcookie("heistuser", $_POST["username"], time() + (30 * 24 * 60 * 60));
                     } else {
                         if (isset($_COOKIE["heistuser"])) {
