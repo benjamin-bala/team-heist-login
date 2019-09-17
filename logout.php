@@ -9,5 +9,5 @@ if (isset($_COOKIE["heistuser"])) {
 session_unset();
 session_destroy();
 
-header("location:login.html");
+header("location:login.php");
 
