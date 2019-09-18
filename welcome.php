@@ -24,7 +24,7 @@ session_start();
                     <h1 class="welcome-text">
                         Welcome,
                         <span class="username">
-                            <!-- <?= isset($_SESSION['fullname'])? $_SESSION['fullname'] : "Heist"?> -->
+                            <?= isset($_SESSION['fullname'])? $_SESSION['fullname'] : "Heist"?>
                         </span>
                     </h1>
                 </div>
