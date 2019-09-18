@@ -130,18 +130,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
                         <div class="form-footer">
                             <p>Not a member yet?. <a href="signup.php" class="loginHeist">Sign up</a></p>
                             <!-- <div class="line"><hr class="left"><span class="text-muted" > or</span><hr class="right"></div>
-                            <div class="d-flex justify-content-center align-items-center"> -->
-                                <!-- <button type="button" class="btn btn-outline-secondary btn-md buttonOption">Sign Up with Google</button>
-                                <button type="button" class="btn btn-outline-secondary btn-md buttonOption">Sign Up with Facebook</button> -->
-                                <!-- <button type="button" class="btn btn-outline-secondary btn-md buttonOption py-1">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <button type="button" class="btn btn-outline-secondary btn-md buttonOption">Sign Up with Google</button>
+                                <button type="button" class="btn btn-outline-secondary btn-md buttonOption">Sign Up with Facebook</button>
+                                <button type="button" class="btn btn-outline-secondary btn-md buttonOption py-1">
                                     <span>
                                       <img src="https://res.cloudinary.com/dcoqt2wpo/image/upload/v1568667394/WhatsApp_Image_2019-09-16_at_21.50.29_wmmg1d.jpg"
                                       alt="Alternate_Signup" width="25" class="img-fluid py-0">
                                     </span>
                                       Sign in with Google
                             </button>
-                            </div> -->
-                        </div>
+                            </div>
+                        </div> -->
                 </div>
             </div>
 
