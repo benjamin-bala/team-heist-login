@@ -1,5 +1,6 @@
 <?php
 date_default_timezone_set('Africa/Lagos');
+
 // start session
 session_start();
 // if logged in already, redirect
