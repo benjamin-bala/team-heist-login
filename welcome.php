@@ -31,6 +31,7 @@ session_start();
                 <div class="img-box animated fadeIn 2s slower">
                     <img class="welcome-image" src="https://res.cloudinary.com/abisola/image/upload/v1568718400/welcome_cuvmal.png">
                 </div>
+                <a href = 'logout.php' ><button name = 'logout' class="btn btn-outline-secondary btn-md buttonOption">Logout</button></a>
         </div>
     </body>
 

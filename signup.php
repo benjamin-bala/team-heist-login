@@ -116,10 +116,10 @@ if (isset($_POST["submit"])) {
                         </div>
                         <div class="form-footer">
                             <p>Already a member?. <a href="login.php" class="loginHeist">Login</a></p>
-                            <div class="line"><hr class="left"><span class="text-muted" > or</span><hr class="right"></div>
+                            <!-- <div class="line"><hr class="left"><span class="text-muted" > or</span><hr class="right"></div>
                             <div class="d-flex justify-content-center align-items-center">
-                                <!-- <button type="button" class="btn btn-outline-secondary btn-md buttonOption">Sign Up with Google</button>
-                                <button type="button" class="btn btn-outline-secondary btn-md buttonOption">Sign Up with Facebook</button> -->
+                                <button type="button" class="btn btn-outline-secondary btn-md buttonOption">Sign Up with Google</button>
+                                <button type="button" class="btn btn-outline-secondary btn-md buttonOption">Sign Up with Facebook</button>
                                 <button type="button" class="btn btn-outline-secondary btn-md buttonOption py-1">
                                     <span>
                                       <img src="https://res.cloudinary.com/dcoqt2wpo/image/upload/v1568667394/WhatsApp_Image_2019-09-16_at_21.50.29_wmmg1d.jpg"
@@ -128,7 +128,7 @@ if (isset($_POST["submit"])) {
                                       Sign in with Google
                             </button>
                             </div>
-                        </div>
+                        </div> -->
                 </div>
             </div>
 
