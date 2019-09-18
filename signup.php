@@ -7,6 +7,7 @@ session_start();
 if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
     $msg = "You are already logged in";
     header("location:welcome.php?message=$msg");
+    exit;
 }
 
 //this is the basic User sign up
@@ -27,6 +28,7 @@ if (isset($_POST["submit"])) {
         if (strlen($fullname) < 1 || strlen($username) < 1 || strlen($email) < 1 || strlen($phone) < 1 || strlen($password) < 1 || strlen($cpassword) < 1) {
             $msg = "Fill all required fields";
             header("location:signup.php?message=$msg");
+            exit;
         }
 
         // check if email && username doesn't exist
@@ -35,16 +37,19 @@ if (isset($_POST["submit"])) {
         if (in_array($email, $emails)) {
             $msg = "User with this email exists";
             header("location:signup.php?message=$msg");
+            exit;
         }
         if (in_array($username, $usernames)) {
             $msg = "Username has been choosen";
             header("location:signup.php?message=$msg");
+            exit;
         }
 
         // check if password match
         if ($password != $cpassword) {
             $msg = "Password don't match";
             header("location:signup.php?message=$msg");
+            exit;
         }
 
         // then store
@@ -62,10 +67,12 @@ if (isset($_POST["submit"])) {
         if (file_put_contents('users.json', $final_data)) {
             $msg = "Signup Successful";
             header("location:login.php?message=$msg");
+            exit;
         }
     } else {
         $msg = 'Error loading database';
         header("location:signup.php?message=$msg");
+        exit;
     }
 }
 
@@ -95,7 +102,7 @@ if (isset($_POST["submit"])) {
             <div class="col-8 image-container"> <!--illustration-->
                 <img src="https://res.cloudinary.com/dcoqt2wpo/image/upload/q_10/v1568587134/Group_22_reybvb.png" alt="student illustration" class="imgHeist">
             </div>
-            <div class="col animated bounceInDown contain"> <!--form-->
+            <div class="col-4 animated bounceInDown contain"> <!--form-->
                 <div class="form-content">
                     <div class="heist-logo animated pulse delay-1s infinite">
                             <img src="https://res.cloudinary.com/benjee/image/upload/v1568672308/Heist_nhkhoh.png" alt="heist logo" width="100" height="100">

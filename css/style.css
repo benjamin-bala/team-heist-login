@@ -2,6 +2,7 @@
     background: #ffffff;
     text-shadow: 4px 4px 4px rgb(255, 255, 255, 0.25);
     font-family: 'Open Sans', sans-serif;
+    max-width: 1440px;
   }
 
   .paddHeist{
