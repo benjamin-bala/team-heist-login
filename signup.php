@@ -1,4 +1,4 @@
-<!-- <?php
+<?php
 date_default_timezone_set('Africa/Lagos');
 
 // start session
@@ -69,7 +69,7 @@ if (isset($_POST["submit"])) {
     }
 }
 
-?> -->
+?>
 <!doctype html>
 <html lang="en" >
   <head>
@@ -85,9 +85,9 @@ if (isset($_POST["submit"])) {
     <link rel="stylesheet" href="css/style.css">
     </head>
   <body>
-    <!-- <?php if (isset($_GET['message'])): ?>
+    <?php if (isset($_GET['message'])): ?>
         <script>alert("<?=$_GET['message']?>");</script>
-    <?php endif;?> -->
+    <?php endif;?>
       <!--check back later-->
     <!-- Begin page content -->
     <div class="container-fluid">
@@ -105,7 +105,7 @@ if (isset($_POST["submit"])) {
                             <p >Kindly create your account by filling the form below</p>
                         </div>
                         <div class="heist-form">
-                            <form > <!--action="signup.php" method="POST" name="form"-->
+                            <form action="signup.php" method="POST" name="form">
                                 <input type="text" class="form-control" name="fullname" id="name" placeholder="Full Name"required aria-required="true">
                                 <input type="text" class="form-control" name="username" id="username" placeholder="Username" required aria-required="true">
                                 <input type="email" name="email" id="email" class="form-control" id="email" placeholder="Email Address" required aria-required="true">
