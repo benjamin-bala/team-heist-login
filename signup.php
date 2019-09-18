@@ -102,7 +102,7 @@ if (isset($_POST["submit"])) {
             <div class="col-8 image-container"> <!--illustration-->
                 <img src="https://res.cloudinary.com/dcoqt2wpo/image/upload/q_10/v1568587134/Group_22_reybvb.png" alt="student illustration" class="imgHeist">
             </div>
-            <div class="col-4 animated bounceInDown contain"> <!--form-->
+            <div class="col animated bounceInDown contain"> <!--form-->
                 <div class="form-content">
                     <div class="heist-logo animated pulse delay-1s infinite">
                             <img src="https://res.cloudinary.com/benjee/image/upload/v1568672308/Heist_nhkhoh.png" alt="heist logo" width="100" height="100">
