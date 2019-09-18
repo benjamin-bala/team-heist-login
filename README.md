@@ -18,4 +18,5 @@ Please to contribute to this project you must strictly adhere to this rules item
 #1. Download and install xampp ( a local server)
 #2. Copy this project to the htdocs directory of your xampp installation
 #3. Start server
-#4. Input this URL in your browser : http://127.0.0.1/project_folder/index.php
+#4. Input this URL in your browser : http://127.0.0.1/project_folder/index.php  OR  Visit https://teamheist.000webhostapp.com to check our project... <br  />
+Also Read on our project on https://lucid.blog/goodybub/post/how-we-did-what-we-did-teamheist-49f
