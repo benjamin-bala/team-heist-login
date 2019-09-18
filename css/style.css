@@ -99,12 +99,20 @@
     .btn{
         font-size: 16px;
     }
-    .contain{
+    /* .contain{
         background: url('https://res.cloudinary.com/benjee/image/upload/v1568676463/Group_1_hyi0jp.png');
         background-repeat: no-repeat;
         background-position-y: -100px;
+    } */
+    .contain {
+        background: url('https://res.cloudinary.com/abisola/image/upload/v1568728325/curves_2_g07mek.svg') no-repeat bottom right,
+            url('https://res.cloudinary.com/abisola/image/upload/v1568728324/curves_q0ee7x.svg') no-repeat top left;
+        ;
+        text-align: center;
+        height: 100vh;
+        max-width: 100%;
     }
-
+    
     /* welcome page style*/
     #wrapper {
         background: none;
@@ -125,10 +133,18 @@
     .btn{
         font-size: 16px;
     }
-    .contain{
+    /* .contain{
         background: url('https://res.cloudinary.com/benjee/image/upload/v1568676463/Group_1_hyi0jp.png');
         background-repeat: no-repeat;
         background-position-y: -100px;
+    } */
+    .contain {
+        background: url('https://res.cloudinary.com/abisola/image/upload/v1568728325/curves_2_g07mek.svg') no-repeat bottom right,
+            url('https://res.cloudinary.com/abisola/image/upload/v1568728324/curves_q0ee7x.svg') no-repeat top left;
+        ;
+        text-align: center;
+        height: 100vh;
+        max-width: 100%;
     }
     h1{
         font-size: 30px;
